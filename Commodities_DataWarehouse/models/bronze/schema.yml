@@ -2,8 +2,15 @@ version: 2
 
 sources:
   - name: dbsales
-    schema: public
+    database: dbsales_5qef 
+    schema: public              
     tables:
-      - name: Date
-      - name: ClosingValue
-      - name: Commodity
+      - name: commodities        
+        description: "Raw commodities data"
+        columns:
+          - name: Date
+            description: "Date of commodity price"
+          - name: ClosingValue
+            description: "Closing price value"
+          - name: Commodity
+            description: "Type of commodity"
