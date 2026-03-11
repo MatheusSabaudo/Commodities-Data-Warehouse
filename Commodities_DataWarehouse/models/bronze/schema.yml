@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dbsales
+    schema: public
+    tables:
+      - name: Date
+      - name: ClosingValue
+      - name: Commodity
