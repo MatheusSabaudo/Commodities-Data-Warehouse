@@ -1,0 +1,47 @@
+[0m10:40:33.731788 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec8628741a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec86192fed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec86192fb10>]}
+
+
+============================== 10:40:33.734675 | 7b2fce2b-7f2a-43b5-a93e-c7c004f0e4e1 ==============================
+[0m10:40:33.734675 [info ] [MainThread]: Running with dbt=1.11.7
+[0m10:40:33.735147 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'use_colors': 'True', 'profiles_dir': '/home/matteo/.dbt', 'invocation_command': 'dbt init', 'indirect_selection': 'eager', 'partial_parse': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'warn_error': 'None', 'static_parser': 'True', 'version_check': 'True', 'introspect': 'True', 'no_print': 'None', 'target_path': 'None', 'debug': 'False', 'quiet': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'fail_fast': 'False', 'empty': 'None'}
+[0m10:40:33.741616 [info ] [MainThread]: Creating dbt configuration folder at /home/matteo/.dbt
+[0m10:41:38.103757 [debug] [MainThread]: Starter project path: /home/matteo/Commodities-Data-Warehouse/.venv/lib/python3.13/site-packages/dbt/include/starter_project
+[0m10:41:38.106176 [info ] [MainThread]: 
+Your new dbt project "Commodities_DataWarehouse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:41:38.106502 [info ] [MainThread]: Setting up your profile.
+[0m10:42:31.225587 [info ] [MainThread]: Profile Commodities_DataWarehouse written to /home/matteo/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m10:42:31.232333 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 117.55284, "process_in_blocks": "21576", "process_kernel_time": 0.200968, "process_mem_max_rss": "105808", "process_out_blocks": "88", "process_user_time": 1.050878}
+[0m10:42:31.232793 [debug] [MainThread]: Command `dbt init` succeeded at 10:42:31.232713 after 117.55 seconds
+[0m10:42:31.233128 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec861973e10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec8636daf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec8619bf460>]}
+[0m10:42:31.233473 [debug] [MainThread]: Flushing usage events
+[0m10:42:31.904840 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:43:51.385688 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c4d801a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c3e33ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c3e33b10>]}
+
+
+============================== 10:43:51.388752 | 055ebd5f-0da9-4589-b5f8-b2ff8c248586 ==============================
+[0m10:43:51.388752 [info ] [MainThread]: Running with dbt=1.11.7
+[0m10:43:51.389411 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'static_parser': 'True', 'warn_error': 'None', 'invocation_command': 'dbt run', 'write_json': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/home/matteo/.dbt', 'fail_fast': 'False', 'introspect': 'True', 'log_cache_events': 'False', 'version_check': 'True', 'empty': 'False', 'no_print': 'None', 'printer_width': '80', 'use_experimental_parser': 'False', 'log_format': 'default', 'indirect_selection': 'eager', 'partial_parse': 'True', 'debug': 'False', 'target_path': 'None'}
+[0m10:43:51.390095 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/matteo/Commodities-Data-Warehouse/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m10:43:51.391015 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.06637643, "process_in_blocks": "360", "process_kernel_time": 0.152676, "process_mem_max_rss": "100952", "process_out_blocks": "24", "process_user_time": 1.053765}
+[0m10:43:51.391409 [debug] [MainThread]: Command `dbt run` failed at 10:43:51.391337 after 0.07 seconds
+[0m10:43:51.391834 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c3e7cc30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c3e71c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75c1c407bf00>]}
+[0m10:43:51.392210 [debug] [MainThread]: Flushing usage events
+[0m10:43:52.041385 [debug] [MainThread]: An error was encountered while trying to flush usage events
