@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dm_commodities
+    description: "Gold model that calculates trading earnings for each commodity on the latest available date."
+
+    columns:
+      - name: date
+        description: "Trading date of the commodity."
+        tests:
+          - not_null
+
+      - name: commodity
+        description: "Commodity symbol (e.g., Gold, Oil, Silver)."
+        tests:
+          - not_null
+
+      - name: closing_value
+        description: "Closing market price of the commodity on that date."
+        tests:
+          - not_null
+
+      - name: action
+        description: "Trading action performed (buy or sell)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['buy', 'sell']
+
+      - name: quantity
+        description: "Number of commodity units traded."
+        tests:
+          - not_null
+
+      - name: price
+        description: "Total value of the transaction (quantity * closing_value)."
+
+      - name: earnings
+        description: "Profit or loss from the transaction. Positive for sells, negative for buys."
