@@ -5,17 +5,18 @@ WITH source AS (
         "Close",
         "symbol"
     
-    FROM {{ source ('dbsales', 'commodities') }}
+    FROM {{ source('dbsales', 'commodities') }}
 ),
 
 renamed AS (
 
     SELECT
-        cast("Date" as date) as Date,
-        "Close" as "Closing Value",
-        "symbol" AS Commodity 
+        cast("Date" as date) as date,
+        "symbol" as commodity,
+        "Close" as closing_value
 
     FROM source
 )
 
-SELECT * FROM renamed
+SELECT * 
+FROM renamed
