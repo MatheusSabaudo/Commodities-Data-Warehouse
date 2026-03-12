@@ -14,3 +14,16 @@ sources:
             description: "Closing price value"
           - name: Commodity
             description: "Type of commodity"
+
+      - name: trading_data        
+        description: "Raw Insetion of the trading data csv"
+        columns:
+          - name: Date
+            description: "Date of commodity price"
+          - name: Commodity
+            description: "Type of commodity"  
+          - name: Action
+            description: "Action: buy or sell the commodity"
+          - name: Qauntity
+            description: "Quantity for the sell or buy"
+          
