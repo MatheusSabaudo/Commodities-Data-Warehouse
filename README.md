@@ -2,9 +2,9 @@
 
 # 📊 Commodities Data Warehouse
 
-A complete **Commodities Data Warehouse** built with dbt, PostgreSQL, and a Streamlit analytical dashboard — designed for time‑series market data ingestion, transformation, modeling, and visualization.
+A complete **Commodities Data Warehouse** built with dbt, PostgreSQL, and a **Streamlit analytical dashboard** — designed for time-series market data ingestion, transformation, modeling, and visualization.
 
-Project extracts raw financial data (e.g., commodity prices and trading activity), transforms it into analytical structures using dbt, and serves business metrics through an interactive dashboard.
+Project extracts raw financial data (commodity prices and trading activity), transforms it into analytical structures using dbt, and serves business metrics through an interactive dashboard created with AI-assisted development.
 
 ---
 
@@ -12,17 +12,20 @@ Project extracts raw financial data (e.g., commodity prices and trading activity
 
 ### 📌 Data Engineering & Modeling
 
-* Modular dbt project with staging and mart layers
+* Modular dbt project with **staging** and **mart** layers
 * Source tables for commodities pricing and trading activity
 * Cleaned, standardized staging models
 * Analytical fact & dimension models for reporting
 
-### 📈 Streamlit Dashboard
+### 📈 AI-Powered Streamlit Dashboard
 
-* Commodity selector and performance KPIs
-* Time‑series price charts and moving averages
-* Volume & trading analytics
-* Table viewer for raw and transformed data
+* Located in the `app/` folder
+* Interactive commodity selector
+* Real-time KPIs: latest, average, and max prices
+* Price trend charts with moving averages (20 & 50 days)
+* Trading volume charts
+* Data table preview
+* Built using **Streamlit** and assisted by AI for code generation and visualization
 
 ### 🛠 Stack
 
@@ -32,7 +35,7 @@ Project extracts raw financial data (e.g., commodity prices and trading activity
 | Transformations | dbt                            |
 | Dashboard       | Streamlit                      |
 | Data Ingestion  | Python (yfinance + SQLAlchemy) |
-| Deployment      | Docker                         |
+| Deployment      | Docker (optional)              |
 
 ---
 
@@ -47,7 +50,7 @@ Project extracts raw financial data (e.g., commodity prices and trading activity
 │   └── schema.yml             # model documentation & tests
 ├── src/                        # Python ETL / ingestion scripts
 ├── profiles.yml                # dbt profiles config
-├── docker‑compose.yml          # for local stack orchestration
+├── docker-compose.yml          # for local stack orchestration
 ├── .env.example                # environment variables template
 ├── README.md                  # this file
 └── LICENSE                    # MIT
@@ -65,12 +68,13 @@ Project extracts raw financial data (e.g., commodity prices and trading activity
 2. **dbt Transformations**
 
    * *Staging*: Clean & standardize raw tables
-   * *Business Models*: Create analytics‑ready structures
+   * *Business Models*: Create analytics-ready structures
 
-3. **Dashboard**
+3. **AI-Powered Streamlit Dashboard**
 
-   * Interactive analytical dashboard with Streamlit
-   * Visualize prices, trends, and trade volumes
+   * Interactive analytical dashboard located in `app/`
+   * Visualizes prices, trends, and trade volumes
+   * Built using AI-assisted code generation and the Streamlit library
 
 *(dbt ensures transformations follow best practices for Test, Document, & Lineage)*
 
@@ -80,70 +84,61 @@ Project extracts raw financial data (e.g., commodity prices and trading activity
 
 ### 🔧 Requirements
 
-Make sure you have installed:
-
-* Docker & Docker Compose
-* dbt CLI
 * Python 3.8+
+* pip
+* PostgreSQL running (or your dbt/warehouse connection working)
+* Streamlit
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
 
 ### 💻 Local Setup
 
 1. **Clone repository**
 
-   ```sh
-   git clone https://github.com/MatheusSabaudo/Commodities-Data-Warehouse.git
-   cd Commodities-Data-Warehouse
-   ```
+```bash
+git clone https://github.com/MatheusSabaudo/Commodities-Data-Warehouse.git
+cd Commodities-Data-Warehouse
+```
 
 2. **Copy env file**
 
-   ```sh
-   cp .env.example .env
-   ```
+```bash
+cp .env.example .env
+```
 
-   Fill in your DB and API credentials.
+Fill in your DB credentials.
 
-3. **Run with Docker**
+3. **Run dbt models**
 
-   ```sh
-   docker-compose up -d
-   ```
+```bash
+cd dbt
+dbt deps
+dbt run
+dbt test
+```
 
-4. **Initialize dbt**
+4. **Run the Streamlit dashboard**
 
-   ```sh
-   dbt deps
-   dbt seed
-   dbt run
-   dbt test
-   ```
+```bash
+streamlit run app/dashboard.py
+```
 
-5. **Start dashboard**
-
-   ```sh
-   streamlit run app/main.py
-   ```
-
----
-
-## 📊 Dashboard Features
-
-* Select commodities to analyze trends 📉
-* Real‑time moving average overlays
-* Primary KPIs: latest, average, max prices
-* Daily or historical filtering
-* Volume charts from trading activity
+Open browser at `http://localhost:8501` (or your network URL).
 
 ---
 
 ## 📘 Documentation
 
 All dbt models are documented in `schema.yml`.
-Add model descriptions and column definitions to build a rich data catalog.
+Generate browsable documentation with:
 
-You can generate browsable documentation with:
-
-```sh
+```bash
 dbt docs generate
 dbt docs serve
 ```
@@ -153,7 +148,7 @@ dbt docs serve
 ## 🤝 Contribute
 
 Contributions are welcome!
-To contribute, open an issue or submit a pull request with improvements.
+Open an issue or submit a pull request with improvements.
 
 ---
 
