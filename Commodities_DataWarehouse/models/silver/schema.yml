@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_commodities
+    description: >
+      Staging model that standardizes commodities market data coming from the
+      dbsales.commodities source table. It casts the date field and renames
+      columns to a consistent naming convention used across the warehouse.
+    columns:
+      - name: Date
+        description: Date of the commodity price record.
+        tests:
+          - not_null
+
+      - name: Closing Value
+        description: Closing market price of the commodity for the given date.
+        tests:
+          - not_null
+
+      - name: Commodity
+        description: Commodity symbol identifying the traded asset (e.g. Gold, Oil).
+        tests:
+          - not_null
+
+
+  - name: stg_trading_data
+    description: >
+      Staging model that cleans and standardizes trading activity data from
+      the dbsales.trading_data source table. The model casts the date field
+      and renames columns to match the warehouse naming conventions.
+    columns:
+      - name: Date
+        description: Date when the trading action occurred.
+        tests:
+          - not_null
+
+      - name: Commodity
+        description: Commodity symbol associated with the trading action.
+        tests:
+          - not_null
+
+      - name: Action
+        description: Trading action performed (e.g. BUY or SELL).
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['BUY', 'SELL']
+
+      - name: Quantity
+        description: Number of commodity units involved in the trade.
+        tests:
+          - not_null
